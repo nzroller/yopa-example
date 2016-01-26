@@ -1,0 +1,10 @@
+yopa:
+  image: unbounce/yopa:latest
+  command: java -Xms64m -Xmx256m -jar uberjar.jar -c /tmp/yopa-in/your-yopa-config.yml -o /tmp/yopa-out/dev-env-aws-regions-override.xml
+  hostname: yopa
+  ports:
+    - 47195:47195
+    - 47196:47196
+  volumes:
+    - /tmp:/tmp/yopa-out
+    - ./yopa:/tmp/yopa-in:ro
